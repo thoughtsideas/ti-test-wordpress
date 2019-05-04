@@ -1,0 +1,55 @@
+## System
+error_log
+.DS_Store
+
+## Server
+.env
+access.log
+error.log
+
+## Development
+bin
+
+## PHP
+vendor/*
+
+## Shared
+/shared/*
+!/shared/index.php
+
+## WordPress
+/html/.htaccess
+/html/wordpress/
+/html/wp-content/uploads/*
+/html/wp-content/blogs.dir/*
+/html/wp-content/upgrade/*
+/html/wp-content/backup-db/*
+/html/wp-content/cache/*
+/html/wp-content/cache/supercache/*
+/html/wp-content/debug.log
+/html/wp-content/advanced-cache.php
+/html/wp-content/db.php
+/html/wp-content/object-cache.php
+/html/wp-content/wp-cache-config.php
+
+### Plugins
+/html/wp-content/plugins/*
+/html/wp-content/mu-plugins/*
+
+#### White-list Plugins
+!/html/wp-content/plugins/index.php
+!/html/wp-content/mu-plugins/index.php
+!/html/wp-content/mu-plugins/acf-json/
+!/html/wp-content/mu-plugins/site-config.php
+!/html/wp-content/mu-plugins/wonolog.php
+
+### Themes
+.sass-cache
+/html/wp-content/themes/*
+
+#### White-list Themes
+!/html/wp-content/themes/index.php
+
+### Languages
+/html/wp-content/languages/*
+!/html/wp-content/languages/index.php
