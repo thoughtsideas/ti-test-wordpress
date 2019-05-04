@@ -18,7 +18,6 @@ vendor/*
 !/shared/index.php
 
 ## WordPress
-/html/.htaccess
 /html/wordpress/
 /html/wp-content/uploads/*
 /html/wp-content/blogs.dir/*
