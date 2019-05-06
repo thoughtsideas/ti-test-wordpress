@@ -23,7 +23,7 @@
 $db = array_merge(
   ['port' => 3306],
   parse_url(
-    getenv('JAWSDB_URL') ? : getenv('CLEARDB_DATABASE_URL')
+    getenv('JAWSDB_MARIA_URL')
   )
 );
 
