@@ -101,6 +101,13 @@ define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON'));
 define( 'WPLANG', 'en_GB' );
 
 /**
+ * SendGrid settings.
+ */
+if ( ! empty( $_ENV['SENDGRID_API_KEY'] ) ) {
+	define( 'SENDGRID_API_KEY', $_ENV['SENDGRID_API_KEY'] );
+}
+
+/**
  * For developers: WordPress debugging mode.
  *
  * Change this to true to enable the display of notices during development.
