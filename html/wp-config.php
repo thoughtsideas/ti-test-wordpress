@@ -101,6 +101,21 @@ define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON'));
 define( 'WPLANG', 'en_GB' );
 
 /**
+ * Redis settings.
+ */
+if ( !empty( $_ENV['REDIS_URL'] ) ) {
+	$_redissettings = parse_url( $_ENV['REDIS_URL'] );
+	define( 'WP_CACHE', true );
+	define( 'WP_REDIS_CLIENT',   'predis'                  );
+	define( 'WP_REDIS_SCHEME',   $_redissettings['scheme'] );
+	define( 'WP_REDIS_HOST',     $_redissettings['host']   );
+	define( 'WP_REDIS_PORT',     $_redissettings['port']   );
+	define( 'WP_REDIS_PASSWORD', $_redissettings['pass']   );
+	define( 'WP_REDIS_MAXTTL',   2419200 /* 28 days */     );
+	unset( $_redissettings );
+}
+
+/**
  * SendGrid settings.
  */
 if ( ! empty( $_ENV['SENDGRID_API_KEY'] ) ) {
