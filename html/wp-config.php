@@ -75,14 +75,13 @@ $table_prefix = 'ti_test_';
 
 define(
   'WP_CONTENT_DIR',
-  '/wp-content'
+  dirname(__FILE__) . '/wp-content'
 );
 
 define(
   'WP_CONTENT_URL',
   'https://' . $_SERVER['HTTP_HOST'] .'/wp-content'
 );
-
 
 define('FORCE_SSL_ADMIN', true);
 define('FORCE_SSL_LOGIN', true);
