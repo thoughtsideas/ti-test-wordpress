@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "151a145c260d13510311c4f1bcbb3d3e",
+    "content-hash": "3aefb8c42e5c68b6c56ad8ab235e87a1",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -3709,6 +3709,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/lj-maintenance-mode/"
+        },
+        {
+            "name": "wpackagist-plugin/nginx-cache",
+            "version": "1.0.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/nginx-cache/",
+                "reference": "tags/1.0.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/nginx-cache.1.0.4.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/nginx-cache/"
         },
         {
             "name": "wpackagist-plugin/post-type-archive-links",
