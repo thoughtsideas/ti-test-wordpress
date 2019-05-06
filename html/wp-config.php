@@ -91,6 +91,16 @@ define('DISALLOW_FILE_MODS', true);
 define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON'));
 
 /**
+ * WordPress Localized Language, defaults to English.
+ *
+ * Change this to localize WordPress. A corresponding MO file for the chosen
+ * language must be installed to wp-content/languages. For example, install
+ * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
+ * language support.
+ */
+define( 'WPLANG', 'en_GB' );
+
+/**
  * For developers: WordPress debugging mode.
  *
  * Change this to true to enable the display of notices during development.
