@@ -73,6 +73,18 @@ define('NONCE_SALT',       getenv('WORDPRESS_NONCE_SALT')      ?:'put your uniqu
  */
 $table_prefix = 'ti_test_';
 
+/**
+ * URLs
+ */
+define(
+  'WP_HOME',
+  'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com'
+);
+define(
+  'WP_SITEURL',
+  'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com/wordpress'
+);
+
 define(
   'WP_CONTENT_DIR',
   dirname(__FILE__) . '/wp-content'
@@ -80,7 +92,7 @@ define(
 
 define(
   'WP_CONTENT_URL',
-  'https://' . $_SERVER['HTTP_HOST'] .'/wp-content'
+  WP_HOME . '/wp-content'
 );
 
 define('FORCE_SSL_ADMIN', true);
