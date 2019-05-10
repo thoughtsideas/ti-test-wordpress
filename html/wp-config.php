@@ -148,8 +148,6 @@ if ( ! empty( $_ENV['SENDGRID_API_KEY'] ) ) {
  */
 define( 'WP_DEBUG', false );
 
-var_dump($_ENV["HEROKU_APP_NAME"]);
-
 /* That's all, stop editing! Happy publishing. */
 
 require_once( dirname( __DIR__ ) . '/vendor/autoload.php' );
