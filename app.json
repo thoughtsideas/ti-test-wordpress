@@ -13,9 +13,6 @@
   ],
   "description": "Test of WordPress on the Heroku platform.",
   "env": {
-    "HEROKU_APP_NAME": {
-      "required": true
-    },
     "DISABLE_WP_CRON": {
       "required": true
     },
