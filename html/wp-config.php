@@ -113,6 +113,19 @@ define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON'));
 define( 'WPLANG', 'en_GB' );
 
 /**
+ * Cache
+ */
+define(
+  'WP_CACHE',
+  true
+);
+
+define(
+  'WP_CACHE_KEY_SALT',
+  getenv('HEROKU_APP_NAME') . '.herokuapp.com'
+);
+
+/**
  * Redis settings.
  */
 if ( !empty( $_ENV['REDIS_URL'] ) ) {
