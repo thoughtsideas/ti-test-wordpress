@@ -1,0 +1,71 @@
+{
+  "addons": [
+    "jawsdb-maria",
+    "newrelic",
+    "heroku-redis",
+    "scheduler",
+    "sendgrid"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ],
+  "description": "Test of WordPress on the Heroku platform.",
+  "env": {
+    "DISABLE_WP_CRON": {
+      "required": true
+    },
+    "JAWSDB_MARIA_URL": {
+      "required": true
+    },
+    "NEW_RELIC_LICENSE_KEY": {
+      "required": true
+    },
+    "NEW_RELIC_LOG": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
+    },
+    "WORDPRESS_AUTH_KEY": {
+      "required": true
+    },
+    "WORDPRESS_AUTH_SALT": {
+      "required": true
+    },
+    "WORDPRESS_LOGGED_IN_KEY": {
+      "required": true
+    },
+    "WORDPRESS_LOGGED_IN_SALT": {
+      "required": true
+    },
+    "WORDPRESS_NONCE_KEY": {
+      "required": true
+    },
+    "WORDPRESS_NONCE_SALT": {
+      "required": true
+    },
+    "WORDPRESS_SECURE_AUTH_KEY": {
+      "required": true
+    },
+    "WORDPRESS_SECURE_AUTH_SALT": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "ti-test-wordpress",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
