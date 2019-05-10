@@ -28,7 +28,6 @@ vendor/*
 /html/wp-content/debug.log
 /html/wp-content/advanced-cache.php
 /html/wp-content/db.php
-/html/wp-content/object-cache.php
 /html/wp-content/wp-cache-config.php
 
 ### Plugins
