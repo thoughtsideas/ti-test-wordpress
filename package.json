@@ -1,4 +1,10 @@
 {
   "name": "ti-test-wordpress",
-  "engines" : { "node" : "10.15" }
+  "engines" : { "node" : "10.15" },
+  "devDependencies": {
+    "@percy/script": "^1.0.0"
+  },
+  "scripts": {
+    "snapshots": "percy exec -- node snapshots.js"
+  }
 }
