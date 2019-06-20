@@ -1,0 +1,28 @@
+# PHP CircleCI 2.0 configuration file
+
+version: 2.1
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: composer install -o -n
+      - run:
+          name: test
+          command: echo $CIRCLE_PR_NUMBER
+  deploy:
+    steps:
+      - checkout
+      - run:
+          name: Create Heroku App
+          command: heroku apps:create $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER
+      - run:
+          name: Add App to Heroku pipeline as a Review App.
+          command: heroku pipelines:add $CIRCLE_PROJECT_REPONAME -a $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER --stage review
+      - run:
+          name: Add app’s remote Git repo.
+          command: git remote add $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER https://git.heroku.com/$CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER.git
+      - run:
+          name: Push branch to Heroku for deployment.
+          command: git push $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER $CIRCLE_BRANCH:master
