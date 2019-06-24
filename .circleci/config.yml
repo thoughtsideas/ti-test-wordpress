@@ -20,8 +20,8 @@ jobs:
       - checkout
       - heroku/install
       - run:
-          name: CIRCLE_PR_NUMBER
-          command: echo $CIRCLE_PULL_REQUEST
+          name: CIRCLE_PULL_REQUEST_NUMBER
+          command: echo ${CIRCLE_PULL_REQUEST##*/}
       - run:
           name: Create Heroku App
           command: heroku apps:create $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER
