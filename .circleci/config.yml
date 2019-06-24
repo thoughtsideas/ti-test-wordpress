@@ -2,6 +2,7 @@
 
 version: 2.1
 orbs:
+  heroku: circleci/heroku@1.0.0
 commands:
 executors:
 jobs:
@@ -20,10 +21,10 @@ jobs:
           name: heroku
           command: heroku login
   deploy:
-    docker:
-      - image: buildpack-deps:trusty
+    executor: heroku/default
     steps:
       - checkout
+      - heroku/install
       - run:
           name: Create Heroku App
           command: heroku apps:create $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER
