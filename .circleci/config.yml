@@ -1,6 +1,9 @@
 # PHP CircleCI 2.0 configuration file
 
 version: 2.1
+orbs:
+commands:
+executors:
 jobs:
   build:
     docker:
@@ -18,7 +21,7 @@ jobs:
           command: heroku login
   deploy:
     docker:
-      - image: circleci/php:7.2.9-zts-stretch
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
@@ -33,3 +36,9 @@ jobs:
       - run:
           name: Push branch to Heroku for deployment.
           command: git push $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER $CIRCLE_BRANCH:master
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy
