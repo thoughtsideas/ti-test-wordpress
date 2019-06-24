@@ -24,16 +24,16 @@ jobs:
           command: echo ${CIRCLE_PULL_REQUEST##*/}
       - run:
           name: Create Heroku App
-          command: heroku apps:create $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER
+          command: heroku apps:create $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}
       - run:
           name: Add App to Heroku pipeline as a Review App.
-          command: heroku pipelines:add $CIRCLE_PROJECT_REPONAME -a $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER --stage review
+          command: heroku pipelines:add $CIRCLE_PROJECT_REPONAME -a $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} --stage review
       - run:
           name: Add app’s remote Git repo.
-          command: git remote add $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER https://git.heroku.com/$CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER.git
+          command: git remote add $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} https://git.heroku.com/$CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}.git
       - run:
           name: Push branch to Heroku for deployment.
-          command: git push $CIRCLE_PROJECT_REPONAME-pr-$CIRCLE_PR_NUMBER $CIRCLE_BRANCH:master
+          command: git push $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} $CIRCLE_BRANCH:master
 workflows:
   version: 2
   build_and_deploy:
