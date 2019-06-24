@@ -2,7 +2,7 @@
 
 version: 2.1
 orbs:
-  heroku: circleci/heroku@1.0.0
+  heroku: circleci/heroku@0.0.8
 commands:
 executors:
 jobs:
@@ -14,12 +14,6 @@ jobs:
       - run:
           name: Install dependencies
           command: composer install -o -n
-      - run:
-          name: test
-          command: echo "$CIRCLE_PR_NUMBER"
-      - run:
-          name: heroku
-          command: heroku login
   deploy:
     executor: heroku/default
     steps:
