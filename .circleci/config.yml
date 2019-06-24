@@ -33,7 +33,7 @@ jobs:
           command: git remote add $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} https://heroku:$HEROKU_API_KEY:git.heroku.com/$CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}.git
       - run:
           name: Push branch to Heroku for deployment.
-          command: git push -f $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} $CIRCLE_BRANCH:master
+          command: git push $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} $CIRCLE_BRANCH:master
 workflows:
   version: 2
   build_and_deploy:
