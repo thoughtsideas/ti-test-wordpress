@@ -24,7 +24,7 @@ jobs:
           command: echo ${CIRCLE_PULL_REQUEST##*/}
       - run:
           name: Create Heroku App
-          command: heroku apps:create $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}
+          command: heroku apps:create --region eu $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}
       - run:
           name: Add App to Heroku pipeline as a Review App.
           command: heroku pipelines:add $CIRCLE_PROJECT_REPONAME -a $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} --stage review
