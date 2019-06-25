@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Add vars to current app.
           command: cat config.txt | tr '\n' ' ' | xargs heroku config:set -a ti-test-wordpress-pr-{#}
-      -run:
+      - run:
           name: Remove temp config file
           command: rm -rf config.txt
       - run:
