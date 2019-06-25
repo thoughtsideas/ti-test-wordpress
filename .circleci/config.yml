@@ -3,8 +3,6 @@
 version: 2.1
 orbs:
   heroku: circleci/heroku@0.0.8
-commands:
-executors:
 jobs:
   build:
     docker:
