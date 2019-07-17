@@ -13,8 +13,6 @@ jobs:
           name: Install dependencies
           command: composer install -o -n
   deploy:
-    requires:
-      - setup
     executor: heroku/default
     steps:
       - checkout
@@ -45,7 +43,9 @@ jobs:
           command: git push -f $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} $CIRCLE_BRANCH:master
 workflows:
   version: 2
-  build_and_deploy:
+  setup_and_deploy:
     jobs:
       - setup
-      - deploy
+      - deploy:
+          requires:
+            - setup
