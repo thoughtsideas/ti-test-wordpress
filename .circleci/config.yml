@@ -1,0 +1,51 @@
+# PHP CircleCI 2.0 configuration file
+
+version: 2.1
+orbs:
+  heroku: circleci/heroku@0.0.8
+jobs:
+  setup:
+    docker:
+        - image: circleci/php:7.2.9-zts-stretch
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: composer install -o -n
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          name: CIRCLE_PULL_REQUEST_NUMBER
+          command: echo ${CIRCLE_PULL_REQUEST##*/}
+      - run:
+          name: Create Heroku App
+          command: if [ false = "heroku apps:info --app $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}" ]; then heroku apps:create --region eu $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}; fi
+      - run:
+          name: Add App to Heroku pipeline as a Review App.
+          command: heroku pipelines:add $CIRCLE_PROJECT_REPONAME -a $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} --stage review || exit 0
+      - run:
+          name: Save current ENV vars.
+          command: heroku config -s -a ti-test-wordpress > config.txt
+      - run:
+          name: Add vars to current app.
+          command: cat config.txt | tr '\n' ' ' | xargs heroku config:set -a ti-test-wordpress-pr-${CIRCLE_PULL_REQUEST##*/}
+      - run:
+          name: Remove temp config file
+          command: rm -rf config.txt
+      - run:
+          name: Add app’s remote Git repo.
+          command: git remote add $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} https://heroku:$HEROKU_API_KEY@git.heroku.com/$CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}.git
+      - run:
+          name: Push branch to Heroku for deployment.
+          command: git push -f $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} $CIRCLE_BRANCH:master
+workflows:
+  version: 2
+  setup_and_deploy:
+    jobs:
+      - setup
+      - deploy:
+          requires:
+            - setup
