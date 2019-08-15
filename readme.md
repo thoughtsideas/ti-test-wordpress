@@ -22,8 +22,8 @@ These tools are needed to develop the site locally.
 - [MySQL](https://mysql.com/)
 - [ [Apache](https://httpd.apache.org/) | [Nginx](https://www.nginx.com/) ]
 
-Most of this can be aquired using [MAMP](https://www.mamp.info/en/mamp-pro/) or [Docker](https://www.docker.com/).
-Use you prefered method for developing locally.
+Most of this can be acquired using [MAMP](https://www.mamp.info/en/mamp-pro/) or [Docker](https://www.docker.com/).
+Use you preferred method for developing locally.
 
 ## Documentation
 
@@ -47,8 +47,11 @@ During the Alpha/Beta stages, due to constant changes, documentation will be mai
 │   └── wp
 ├── shared
 ├── vendor
+├── app.json
 ├── composer.json
-└── sample.env
+├── Procfile
+├── readme.md
+└── wp-cli.yml
 
 ```
 
