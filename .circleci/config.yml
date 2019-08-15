@@ -6,12 +6,28 @@ orbs:
 jobs:
   setup:
     docker:
-        - image: circleci/php:7.2.9-zts-stretch
+        - image: circleci/php:7.2.21-zts-stretch-node-browsers
     steps:
       - checkout
+      - restore_cache:
+          keys:
+          - composer-{{ checksum "composer.lock" }}
       - run:
-          name: Install dependencies
+          name: Install PHP dependencies
           command: composer install -o -n
+      - save_cache:
+          key: composer-{{ checksum "composer.lock" }}
+          paths:
+            - ./vendor
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install NodeJS dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
   deploy:
     executor: heroku/default
     steps:
