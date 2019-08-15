@@ -10,8 +10,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
+          name: Install PHP dependencies
           command: composer install -o -n
+      - run:
+          name: Install NodeJS dependencies
+          command: npm install
   deploy:
     executor: heroku/default
     steps:
