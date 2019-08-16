@@ -69,6 +69,7 @@ workflows:
   version: 2
   setup_and_deploy:
     jobs:
+      - setup
       - release-app:
           requires:
             - setup
