@@ -63,8 +63,11 @@ jobs:
       - checkout
       - heroku/install
       - run:
-          name: INFO
-          command: echo 'Only runs on master.'
+          name: Add app’s remote Git repo.
+          command: git remote add $CIRCLE_PROJECT_REPONAME https://heroku:$HEROKU_API_KEY@git.heroku.com/$CIRCLE_PROJECT_REPONAME.git
+      - run:
+          name: Push branch to Heroku for deployment.
+          command: git push -f $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH:master
 workflows:
   version: 2
   setup_and_deploy:
