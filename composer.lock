@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9499999937d03cb2465bda495db78154",
+    "content-hash": "a21916ba0515503a235c6313709eddba",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -4087,7 +4087,7 @@
         "ext-exif": "*",
         "ext-gd": "*",
         "ext-gettext": "*",
-        "ext-imageick": "*",
+        "ext-imagick": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-pcntl": "*",

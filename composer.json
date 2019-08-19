@@ -34,7 +34,7 @@
     "ext-exif": "*",
     "ext-gd": "*",
     "ext-gettext": "*",
-    "ext-imageick": "*",
+    "ext-imagick": "*",
     "ext-intl": "*",
     "ext-mbstring": "*",
     "ext-pcntl": "*",
