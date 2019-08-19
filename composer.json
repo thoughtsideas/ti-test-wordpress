@@ -29,6 +29,19 @@
   "require": {
     "php": "7.2.*",
     "composer/installers": "~1.0",
+    "ext-bcmath": "*",
+    "ext-calendar": "*",
+    "ext-exif": "*",
+    "ext-gd": "*",
+    "ext-gettext": "*",
+    "ext-imageick": "*",
+    "ext-intl": "*",
+    "ext-mbstring": "*",
+    "ext-pcntl": "*",
+    "ext-shmop": "*",
+    "ext-sodium": "*",
+    "ext-xsl": "*",
+    "heroku/heroku-buildpack-php": "*",
     "inpsyde/wonolog": "1.0.*",
     "johnpbloch/wordpress": "5.2.*",
     "vlucas/phpdotenv": "3.3.*",
@@ -49,19 +62,7 @@
     "wp-cli/wp-cli-bundle": "2.2.*"
     },
   "require-dev": {
-    "heroku/heroku-buildpack-php": "*",
-    "ext-bcmath": "*",
-    "ext-calendar": "*",
-    "ext-exif": "*",
-    "ext-gd": "*",
-    "ext-gettext": "*",
-    "ext-imageick": "*",
-    "ext-intl": "*",
-    "ext-mbstring": "*",
-    "ext-pcntl": "*",
-    "ext-shmop": "*",
-    "ext-sodium": "*",
-    "ext-xsl": "*"
+
   },
   "config": {},
   "extra": {
