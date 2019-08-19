@@ -28,7 +28,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  deploy:
+  release-app:
     executor: heroku/default
     steps:
       - checkout
@@ -57,11 +57,32 @@ jobs:
       - run:
           name: Push branch to Heroku for deployment.
           command: git push -f $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} $CIRCLE_BRANCH:master
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          name: Add app’s remote Git repo.
+          command: git remote add $CIRCLE_PROJECT_REPONAME https://heroku:$HEROKU_API_KEY@git.heroku.com/$CIRCLE_PROJECT_REPONAME.git
+      - run:
+          name: Push branch to Heroku for deployment.
+          command: git push -f $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH:master
 workflows:
   version: 2
   setup_and_deploy:
     jobs:
       - setup
+      - release-app:
+          requires:
+            - setup
+          filters:
+            branches:
+              ignore:
+                - master
       - deploy:
           requires:
             - setup
+          filters:
+            branches:
+              only: master
