@@ -14,7 +14,7 @@ jobs:
           - composer-{{ checksum "composer.lock" }}
       - run:
           name: Install PHP dependencies
-          command: composer install -o -n
+          command: composer install -o -n --ignore-platform-reqs
       - save_cache:
           key: composer-{{ checksum "composer.lock" }}
           paths:
