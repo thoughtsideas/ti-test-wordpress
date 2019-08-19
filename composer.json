@@ -41,7 +41,6 @@
     "ext-shmop": "*",
     "ext-sodium": "*",
     "ext-xsl": "*",
-    "heroku/heroku-buildpack-php": "*",
     "inpsyde/wonolog": "1.0.*",
     "johnpbloch/wordpress": "5.2.*",
     "vlucas/phpdotenv": "3.3.*",
@@ -59,10 +58,10 @@
     "wpackagist-plugin/wp-robots-txt": "1.1.*",
     "wpackagist-plugin/wp-smushit":"3.2.*",
     "wpackagist-theme/twentynineteen": "*",
-    "wp-cli/wp-cli-bundle": "2.2.*"
+    "wp-cli/wp-cli-bundle": "2.3.*"
     },
   "require-dev": {
-
+    "heroku/heroku-buildpack-php": "*"
   },
   "config": {},
   "extra": {
