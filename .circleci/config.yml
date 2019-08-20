@@ -43,6 +43,12 @@ jobs:
           name: Add App to Heroku pipeline as a Review App.
           command: heroku pipelines:add $CIRCLE_PROJECT_REPONAME -a $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} --stage review || exit 0
       - run:
+          name: Set host name
+          command: heroku config:set HEROKU_APP_NAME=$CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}
+      - run:
+          name: Set server environment
+          command: heroku config:set ENV=qa
+      - run:
           name: Add app’s remote Git repo.
           command: git remote add $CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/} https://heroku:$HEROKU_API_KEY@git.heroku.com/$CIRCLE_PROJECT_REPONAME-pr-${CIRCLE_PULL_REQUEST##*/}.git
       - run:
