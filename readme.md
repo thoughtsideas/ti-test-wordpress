@@ -65,7 +65,7 @@ During the Alpha/Beta stages, due to constant changes, documentation will be mai
 
 ## Setup
 
-- Install composers dependencies `composer install`.
+- Install composers dependencies `composer install --ignore-platform-reqs`.
 - Duplicate and rename the `/sample.env` file to `/.env`. Updating each variable to match your local environment.
 - Import your database
 -
