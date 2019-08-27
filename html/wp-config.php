@@ -78,11 +78,11 @@ $table_prefix = 'ti_test_';
  */
 define(
   'WP_HOME',
-  'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com'
+  sprintf('https://%s', $_SERVER['HTTP_HOST'])
 );
 define(
   'WP_SITEURL',
-  'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com/wordpress'
+  sprintf('%s/wordpress', WP_HOME)
 );
 
 define(
