@@ -67,6 +67,7 @@ jobs:
           name: Push branch to Heroku for deployment.
           command: git push -f $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH:master
   visual-regression:
+    executor: percy/finalize_all
     steps:
       - run:
           name: Test Job
@@ -97,3 +98,6 @@ workflows:
             branches:
               ignore:
                 - master
+      - percy/finalize_all:
+         requires:
+           - visual-regression
