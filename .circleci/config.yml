@@ -3,6 +3,7 @@
 version: 2.1
 orbs:
   heroku: circleci/heroku@0.0.8
+  percy: percy/agent@0.1.2
 jobs:
   setup:
     docker:
@@ -65,6 +66,12 @@ jobs:
       - run:
           name: Push branch to Heroku for deployment.
           command: git push -f $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH:master
+  visual-regression:
+    executor: percy/finalize_all
+    steps:
+      - run:
+          name: Test Job
+          command: echo 'Test Complete'
 workflows:
   version: 2
   setup_and_deploy:
@@ -83,3 +90,14 @@ workflows:
           filters:
             branches:
               only: master
+      - visual-regression:
+          requires:
+            - setup
+            - release-app
+          filters:
+            branches:
+              ignore:
+                - master
+      - percy/finalize_all:
+         requires:
+           - visual-regression
