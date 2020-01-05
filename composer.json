@@ -44,7 +44,7 @@
     "ext-xsl": "*",
     "humanmade/s3-uploads": "2.1.*",
     "inpsyde/wonolog": "1.0.*",
-    "johnpbloch/wordpress": "5.2.*",
+    "johnpbloch/wordpress": "5.3.*",
     "vlucas/phpdotenv": "3.3.*",
     "wpackagist-plugin/classic-editor":"1.5.*",
     "wpackagist-plugin/lj-maintenance-mode": "2.4.*",
