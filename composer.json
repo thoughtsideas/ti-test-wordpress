@@ -55,7 +55,7 @@
     "wpackagist-plugin/secure-db-connection": "1.1.*",
     "wpackagist-plugin/safe-svg": "1.9.*",
     "wpackagist-plugin/sendgrid-email-delivery-simplified":"1.11.*",
-    "wpackagist-plugin/stream": "3.4.*",
+    "wpackagist-plugin/stream": "3.6.*",
     "wpackagist-plugin/wordpress-seo":"11.8.*",
     "wpackagist-plugin/wp-help": "1.5.*",
     "wpackagist-plugin/wp-robots-txt": "1.1.*",
