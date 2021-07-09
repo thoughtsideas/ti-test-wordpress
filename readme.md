@@ -1,5 +1,7 @@
 # TI Test WordPress Site
 
+⚠️ Archived: 2021-07-09 ⚠️
+
 [![license](https://img.shields.io/github/license/thoughtsideas/ti-test-wordpress.svg)](https://github.com/thoughtsideas/ti-test-wordpress)  [![GitHub Release](https://img.shields.io/github/release/thoughtsideas/ti-test-wordpress.svg)](https://github.com/thoughtsideas/ti-test-wordpress)  ![CircleCI](https://img.shields.io/circleci/build/github/thoughtsideas/ti-test-wordpress/master.svg?token=dedf506a4ac3be8f191b429ac510be9dde47d179)  [![GitHub issues](https://img.shields.io/github/issues/thoughtsideas/ti-test-wordpress.svg)](https://github.com/thoughtsideas/ti-test-wordpress)  ![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/thoughtsideas/ti-test-wordpress.svg)
 
 ## Project URLS
